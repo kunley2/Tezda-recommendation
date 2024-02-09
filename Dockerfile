@@ -4,6 +4,7 @@ FROM python:3.10.9
 RUN apt update
 RUN pip install --upgrade pip
 
+ENV PORT=8000
 EXPOSE 8000 
 # Upgrade pip
 WORKDIR /app 
