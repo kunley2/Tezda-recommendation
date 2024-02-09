@@ -1,4 +1,4 @@
-FROM python:3.9.13 
+FROM python:3.10.9 
 # Image from dockerhub
 # Expose the port 5000 in which our application runs
 RUN apt update

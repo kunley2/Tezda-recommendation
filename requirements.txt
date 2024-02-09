@@ -6,7 +6,6 @@ boto3==1.34.38
 botocore==1.34.38
 click==8.1.7
 colorama==0.4.6
-Django==5.0.2
 exceptiongroup==1.2.0
 fastapi==0.109.2
 Flask==3.0.2

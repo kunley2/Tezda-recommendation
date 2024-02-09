@@ -4,6 +4,7 @@ from fastapi import FastAPI
 from fastapi.middleware.wsgi import WSGIMiddleware
 import uvicorn
 import os
+from src.recommend import get_recommendation
 
 
 api = FastAPI()
@@ -13,8 +14,8 @@ api_route = '/api/v1'
 
 @api.post(f'{api_route}/recommend')
 async def company(user_id:str):
-    
-    return {'result':"result"}
+    result = get_recommendation(user_id)
+    return {'result':result}
 
 api.mount('/',WSGIMiddleware(flask_app))
 

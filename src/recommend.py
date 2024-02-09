@@ -15,13 +15,13 @@ client = boto3.client(
     region_name=os.getenv('region'),
 )
 
-def get_recommendation(user_id):
+def get_recommendation(user_id) -> dict:
     """ this function returns the recommeded product for a given user
             Parameters:
                     user_id (str): the user id of the user to get recommendation for
 
             Returns:
-                    likes_count (str): The amount of likes on the page
+                    Recommendation (dict): a dictionary containing the recommended products id and their metadata
     """
     response = client.get_recommendations(
         campaignArn = os.getenv('arn'),
@@ -32,8 +32,5 @@ def get_recommendation(user_id):
         }
     )
     recom_df = pd.DataFrame(response["itemList"])
-    # print(recom_df)
-    # print(link_df)
     merged_df = pd.merge(recom_df,link_df,how='left',on='itemId')
-    print(merged_df)
     return json.loads(merged_df.to_json(orient='records'))
