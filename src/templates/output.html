@@ -5,7 +5,7 @@
 
 {% block content %}
 <div class="container d-flex flex-column">
-  <div class="row vh-100">
+  <div class="row">
     <div class="col-sm-10 col-md-8 col-lg-8 mx-auto my-4 d-table h-100">
       <div class="align-middle">
 
@@ -13,25 +13,25 @@
           <h1 class="h2">Info about, {{user_id}}</h1>
 
         </div>
-        <div class="row row-cols-1 row-cols-md-3 g-4">
-          {% for result in response %}
-          <div class="col">
-            <div class="card" style="width: 400px;">
-              <video controls="controls"class="object-fit-cover" alt="...">
-                  <source  src="{{result.videoData.videoS3Url}}" type="video/mp4" >
-                </video>
-              <div class="card-body">
-                <h5 class="card-title">product id :{{result.itemId}}</h5>
-                <p class="card-text">description: this is the video of a man cooking...</p>
-                <p class="card-text">genre: {{result.videoData.parentLabels}}</p>
-              </div>
-            </div>
-          </div>
-          
-          {% endfor %}
+      </div>
+    </div>
+  </div>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {% for result in response %}
+    <div class="col" style="width:33% !important">
+      <div class="card" style="height:400px !important" >
+        <video controls="controls"class="object-fit-cover" alt="..." style="height:55% !important" >
+            <source  src="{{result.videoData.videoS3Url}}" type="video/mp4" >
+        </video>
+        <div class="card-body">
+          <h5 class="card-title">product id :{{result.itemId}}</h5>
+          <p class="card-text">description: this is the video of a man cooking...</p>
+          <p class="card-text">genre: {{result.videoData.parentLabels}}</p>
         </div>
       </div>
     </div>
+    
+    {% endfor %}
   </div>
 </div>
 
