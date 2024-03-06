@@ -34,7 +34,8 @@ def output():
     """
     if request.method == "POST":
         user_id = request.form.get('User-id')
-        url = os.getenv("BASE_URL")
+        # url = os.getenv("BASE_URL")
+        url = "http://52.56.249.137/userRecommendation"
         # key = os.getenv("API_KEY")
         params = {
             "userId":user_id,
