@@ -38,11 +38,11 @@ def output():
         url = "http://52.56.249.137/userRecommendation"
         # key = os.getenv("API_KEY")
         params = {
-            "userId":user_id,
+            "user_id":user_id,
         }
         # headers = {"x-api-key": key}
-        response = requests.get(url,params=params,).json()
-        # print(response)
-        # print(response['data'])
+        response = requests.get(url,params=params).json()
+        # print(response.status_code)
+        print(response)
         
     return render_template('output.html', user_id=user_id, response=response['body']['data'])
