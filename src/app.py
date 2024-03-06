@@ -35,15 +35,13 @@ def output():
     if request.method == "POST":
         user_id = request.form.get('User-id')
         url = os.getenv("BASE_URL")
-        key = os.getenv("API_KEY")
+        # key = os.getenv("API_KEY")
         params = {
             "userId":user_id,
         }
-        headers = {"x-api-key": key}
-        response = requests.get(url,params=params,headers=headers).json()
+        # headers = {"x-api-key": key}
+        response = requests.get(url,params=params,).json()
         # print(response)
-        # print(list(response))
-        # print(response.json())
-        print(response['data'])
+        # print(response['data'])
         
-    return render_template('output.html', user_id=user_id, response=response['data'])
+    return render_template('output.html', user_id=user_id, response=response['body']['data'])
