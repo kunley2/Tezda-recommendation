@@ -20,4 +20,4 @@ api_route = '/api/v1'
 api.mount('/',WSGIMiddleware(flask_app))
 
 if __name__ == '__main__':
-    uvicorn.run(api,host='0.0.0.0',port=os.getenv("PORT"))
+    uvicorn.run(api,host='0.0.0.0',port=5000)

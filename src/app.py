@@ -34,15 +34,15 @@ def output():
     """
     if request.method == "POST":
         user_id = request.form.get('User-id')
-        # url = os.getenv("BASE_URL")
-        url = "http://52.56.249.137/userRecommendation"
-        # key = os.getenv("API_KEY")
+        url = os.getenv("BASE_URL")
+        # url = "http://52.56.249.137/userRecommendation"
+        key = os.getenv("API_KEY")
         params = {
-            "user_id":user_id,
+            "userId":user_id,
         }
-        # headers = {"x-api-key": key}
-        response = requests.get(url,params=params).json()
+        headers = {"x-api-key": key}
+        response = requests.get(url,params=params,headers=headers).json()
         # print(response.status_code)
-        print(response)
+        # print(response)
         
-    return render_template('output.html', user_id=user_id, response=response['body']['data'])
+    return render_template('output.html', user_id=user_id, response=response['data'])
